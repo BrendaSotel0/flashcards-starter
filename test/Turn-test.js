@@ -38,9 +38,22 @@ describe('Turn', () => {
     expect(turn.evaluateGuess()).to.equal(false);
   });
 
-  it('should return true if the user’s guess is icorrect', () => {
+  it('should return true if the user’s guess is correct', () => {
     const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const turn = new Turn('sea otter', card);
     expect(turn.evaluateGuess()).to.equal(true)
+  });
+
+
+  it('should return Correct! if the user’s guess is correct', () => {
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const turn = new Turn('sea otter', card);
+    expect(turn.giveFeedback()).to.equal('Correct!')
+  });
+
+  it('should return Incorrect! if the user’s guess is incorrect', () => {
+    const card = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
+    const turn = new Turn('Terrier', card);
+    expect(turn.giveFeedback()).to.equal('Incorrect!')
   });
 })

@@ -20,6 +20,14 @@ class Turn {
     //   return false;
     // }    
   }
+
+  giveFeedback = () => {
+    if (this.guess === this.currentCard.correctAnswer) {
+      return 'Correct!';
+    } else {
+      return 'Incorrect!';
+    }
+  }
 }
 
 module.exports = Turn;
