@@ -29,15 +29,26 @@ describe('Round', () => {
   it('should update the turn count', () => {
     round.takeTurn('guess');
     expect(round.turns).to.equal(1);
-  })
+  });
 
   it('should update the current card', () => {
     round.takeTurn('guess');
     expect(round.returnCurrentCard().id).to.equal(2);
-  })
+  });
 
-  it('should evaluate the guess', () => {
+  it('should evaluate whether the guess is correct', () => {
+    turn = new Turn("object", card1);
     round.takeTurn('guess');
-    expect(round.turns).to.equal(1);
-  })
+    expect(turn.evaluateGuess()).to.equal(true);
+  });
+
+  it('should evaluate whether the guess is incorrect', () => {
+    round.takeTurn('guess');
+    expect(turn.evaluateGuess()).to.equal(false);
+  });
+
+  it.skip('should store incorrect guess into an array', () => {
+    round.takeTurn('guess');
+    expect(round.incorrectGuesses).to.equal(1);
+  });
 })

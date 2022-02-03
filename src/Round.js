@@ -5,8 +5,7 @@ class Round {
     this.turns = 0;
     this.deck = deck;
     this.currentCard = deck.cards[this.turns];
-    this.correctGuess = [];
-    this.incorrectGuess = [];
+    this.incorrectGuesses = [];
   }
 
   returnCurrentCard() {
@@ -22,8 +21,8 @@ class Round {
       //when a guess is made a new turn instance is created DONE
         //the count is updated regardless of correctness
     //BULLET the next card becomes current card DONE
-    
-    //BULLET evaluates guesses,
+    //BULLET evaluates guesses, DONE
+
       //stores ids of incorrect guesses in array
     //BULLET Feedback is returned regarding whether the guess is incorrect or correct
   }
