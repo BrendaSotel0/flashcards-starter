@@ -17,7 +17,8 @@ describe('Deck', () => {
     deck = new Deck([card1, card2, card3]);
   });
 
-  it('should have a method that counts how many cards are in the deck', () => {
+  it.skip('should have a method that counts how many cards are in the deck', () => {
     expect(deck.countCards()).to.equal(3);
+    //new deck with various sizes
   })
 })
