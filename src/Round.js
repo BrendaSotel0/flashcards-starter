@@ -1,12 +1,12 @@
 const Turn = require("./Turn");
 
 class Round {
-  constructor(turn) {
-    this.currentCard = turn.currentCard;
+  constructor(deck) {
     this.turns = 0;
+    this.deck = deck;
+    this.currentCard = deck.cards[this.turns];
     this.correctGuess = [];
     this.incorrectGuess = [];
-
   }
 
   returnCurrentCard() {
@@ -16,17 +16,16 @@ class Round {
   takeTurn(guess) {
     let turn = new Turn(guess, this.returnCurrentCard()); 
     this.turns++;
-    
+    this.currentCard = this.deck.cards[this.turns];
 
-    //updates turns count, DONE
-      //when a guess is made a new turn instance is created
-      //the count is updated regardless of correctness
-      //the next card becomes current card
-    //evaluates guesses,
-      //checks if it's correct or no
-    //gives feedback,
-      //is the card correct or incorrect?
-    //and stores ids of incorrect guesses
+    //BULLET updates turns count, DONE
+      //when a guess is made a new turn instance is created DONE
+        //the count is updated regardless of correctness
+    //BULLET the next card becomes current card DONE
+    
+    //BULLET evaluates guesses,
+      //stores ids of incorrect guesses in array
+    //BULLET Feedback is returned regarding whether the guess is incorrect or correct
   }
 
   calculatePercentCorrect() {

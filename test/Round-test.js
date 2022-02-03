@@ -14,17 +14,15 @@ describe('Round', () => {
   let round;
 
   beforeEach(() => {
-    card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
-    card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
-    card3 = new Card(12, 'What is Travis\'s favorite stress reliever?', ['listening to music', 'watching Netflix', 'playing with bubble wrap'], 'playing with bubble wrap');
+    card1 = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ["object", "array", "function"], "object");
+    card2 = new Card(2, 'What is a comma-separated list of related values?', ["array", "object", "function"], 'array');
+    card3 = new Card(3, 'What type of prototype method directly modifies the existing array?', ["mutator method", "accessor method", "iteration method"], 'mutator method');
     turn = new Turn("Terrier", card1);
     deck = new Deck([card1, card2, card3]);
-    round = new Round(turn);
+    round = new Round(deck);
   });
 
   it('should return the current card being played', () => {
-    turn = new Turn('Terrier', deck.cards[0]);
-    let round = new Round(turn);
     expect(round.returnCurrentCard()).to.equal(card1);
   });
 
@@ -33,10 +31,13 @@ describe('Round', () => {
     expect(round.turns).to.equal(1);
   })
 
-  // it('should have a method that instantiates a turn', () => {
-  //   turn = new Turn('Terrier', deck.cards[0]);
-  //   let round = new Round(turn);
-  //   expect(round.returnCurrentCard()).to.equal(card1);
-  // })
+  it('should update the current card', () => {
+    round.takeTurn('guess');
+    expect(round.returnCurrentCard().id).to.equal(2);
+  })
+
+  it('should evaluate the guess', () => {
+    round.takeTurn('guess');
+    expect(round.turns).to.equal(1);
+  })
 })
-//expect(round.returnCurrentCard()).to.equal(deck.cards[round.turns])
