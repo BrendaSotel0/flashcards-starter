@@ -37,7 +37,7 @@ describe('Round', () => {
   });
 
   it('should evaluate whether the guess is correct', () => {
-    turn = new Turn("object", card1);
+    turn = new Turn('object', card1);
     round.takeTurn('guess');
     expect(turn.evaluateGuess()).to.equal(true);
   });
@@ -47,8 +47,10 @@ describe('Round', () => {
     expect(turn.evaluateGuess()).to.equal(false);
   });
 
-  it.skip('should store incorrect guess into an array', () => {
+  it('should store incorrect guesses', () => {
+    turn = new Turn('function', card1);
     round.takeTurn('guess');
-    expect(round.incorrectGuesses).to.equal(1);
+    expect(round.incorrectGuesses.length).to.equal(1);
+    expect(rounnd.incorrectGuesses[0]).to.equal('function')
   });
 })
